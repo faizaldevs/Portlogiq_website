@@ -1,0 +1,112 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.success-icon {   
+  margin-top: 70px;
+  width: 170px;       
+  height: 170px;      
+  color: #22c55e;    
+  filter: drop-shadow(0 2px 6px rgba(34, 197, 94, 0.4));
+  animation: bounce 1.5s infinite;
+}
+
+/* Optional: bounce animation (similar to Tailwind’s animate-bounce) */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(-10%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+.order-box {
+  background: linear-gradient(to right, #3b82f6, #93c5fd); 
+  border: 1px solid #60a5fa;
+  border-radius: 12px;
+  padding: 12px 24px;
+  margin-bottom: 40px;
+  display: inline-block;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  width: 350px;             
+}
+
+.order-text {
+  color: #1f2937;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.order-number {
+  color: #1d4ed8;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.order-buttons {
+  display: flex;
+  flex-direction: column; /* Mobile view: stacked */
+  justify-content: center;
+  align-items: center;
+  gap: 16px; /* space between buttons */
+}
+
+@media (min-width: 640px) {
+  .order-buttons {
+    flex-direction: row; /* Desktop: side-by-side */
+  }
+}
+
+.order-btn {
+  border: 2px solid #3b82f6; /* blue-500 */
+  color: #2563eb; /* blue-600 */
+  padding: 12px 32px;
+  border-radius: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+  display: inline-block;
+}
+
+.order-btn:hover {
+  background-color: #eff6ff; /* blue-50 */
+  transform: scale(1.05);
+}
