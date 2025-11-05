@@ -46,5 +46,21 @@ code {
   }
 }
 
+gmp-place-autocomplete {
+  /* host-level colors */
+  background-color: #ffffff !important;
+  color: #000000 !important;
 
+  /* material tokens (force) */
+  --md-sys-color-surface: #ffffff !important;
+  --md-sys-color-on-surface: #000000 !important;
+  --md-sys-color-on-surface-variant: #000000 !important;
+  --md-sys-color-primary: #000000 !important;
 
+  /* ensure light theme & basic chrome look */
+  color-scheme: light !important;
+  border: 1px solid #e5e7eb !important;
+  border-radius: 6px !important;
+  display: block !important;
+  padding: 0 !important;   /* host padding; inner input may inherit */
+}

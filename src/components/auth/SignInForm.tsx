@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link  } from "react-router-dom";
 import api from "../../services/api";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
@@ -20,13 +20,15 @@ export default function SignInForm() {
       await api.get("/sanctum/csrf-cookie");
       const response = await api.post("api/store/login", { email, password });
 
-      if (response.data.status && response.data.user.roles[0].name === "Customer") {
+      const roles = response.data.user.roles.map((r: any) => r.name);
+
+      if (response.data.status && roles.includes("Customer")) {
         localStorage.setItem("auth_token", response.data.token);
         navigate("/checkout");
       }
     } catch (err : any) {
       if (err.response?.status === 403) {
-        setError("Only Superadmin can access this system.");
+        setError("Only Customer can access this system.");
       } else {
         setError("Wrong credentials. Please try again.");
       }
@@ -49,7 +51,7 @@ export default function SignInForm() {
             </label>
             <input
               type="email"
-              placeholder="admin@example.com"
+              placeholder="example@example.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className="w-full px-4 py-3 border border-gray-200 rounded-lg bg-gray-100 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white transition"
@@ -103,6 +105,12 @@ export default function SignInForm() {
             Sign in
           </button>
         </form>
+          <div className="text-center mt-4 text-gray-600">
+            Don’t have an account?{" "}
+            <Link to="/register" className="text-blue-600 hover:underline" style={{ color: "blue" }}>
+              Register now
+            </Link>
+          </div>
       </div>
     </div>
   );
