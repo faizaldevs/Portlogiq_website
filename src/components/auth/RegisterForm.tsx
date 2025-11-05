@@ -397,11 +397,16 @@ useEffect(() => {
               />
               {errors.first_name && <p className="text-red-500">{errors.first_name[0]}</p>}
             </div>
+
             <div>
               <label>Last Name<span className="text-red-500">*</span></label>
-              <input type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} required 
-              className="w-full border border-gray-300 rounded-lg px-3 py-3 text-gray-900 bg-white 
-                          focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" />
+              <input type="text" 
+                     value={lastName} 
+                     onChange={(e) => setLastName(e.target.value)} 
+                     required 
+                     className="w-full border border-gray-300 rounded-lg px-3 py-3 text-gray-900 bg-white 
+                          focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" 
+              />
               {errors.last_name && <p className="text-red-500">{errors.last_name[0]}</p>}
             </div>
           </div>
@@ -410,28 +415,42 @@ useEffect(() => {
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label>Phone<span className="text-red-500">*</span></label>
-              <input type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} required 
-              className="w-full border border-gray-300 rounded-lg px-3 py-3 text-gray-900 bg-white  
-                          focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" />
+              <input type="tel" 
+                     value={phone} 
+                     onChange={(e) => setPhone(e.target.value)} 
+                     required 
+                     className="w-full border border-gray-300 rounded-lg px-3 py-3 text-gray-900 bg-white  
+                          focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" 
+              />
               {errors.phone && <p className="text-red-500">{errors.phone[0]}</p>}
             </div>
+
             <div>
               <label>Email<span className="text-red-500">*</span></label>
-              <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required 
-              className="w-full border border-gray-300 rounded-lg px-3 py-3 text-gray-900 bg-white  
-                          focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" />
+              <input type="email" 
+                     value={email} 
+                     onChange={(e) => setEmail(e.target.value)} 
+                     required 
+                     className="w-full border border-gray-300 rounded-lg px-3 py-3 text-gray-900 bg-white  
+                          focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" 
+              />
               {errors.email && <p className="text-red-500">{errors.email[0]}</p>}
             </div>
           </div>
 
-          {/* Password + Address */}
+          {/* Password + Country */}
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label>Password<span className="text-red-500">*</span></label>
-              <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required 
-              className="w-full border border-gray-300 rounded-lg px-3 py-3 text-gray-900 bg-white  
-                          focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" />
+              <input type="password" 
+                     value={password} 
+                     onChange={(e) => setPassword(e.target.value)} 
+                     required 
+                     className="w-full border border-gray-300 rounded-lg px-3 py-3 text-gray-900 bg-white  
+                          focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" 
+              />
             </div>
+
             <div>
               <label>Country</label>
               <Select
@@ -444,7 +463,7 @@ useEffect(() => {
             </div>
           </div>
 
-          {/* Address Line 2 + Suburb */}
+          {/* Address Lines 2 */}
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label>Address Line 1 (searchable)<span className="text-red-500">*</span></label>
@@ -456,21 +475,29 @@ useEffect(() => {
             </div>
             <div>
               <label>Address Line 2</label>
-              <input type="text" value={address2} onChange={(e) => setAddress2(e.target.value)} 
-              className="w-full border border-gray-300 rounded-lg px-3 py-3 text-gray-900 bg-white  
-                          focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" />
+              <input type="text" 
+                     value={address2} 
+                     onChange={(e) => setAddress2(e.target.value)} 
+                     className="w-full border border-gray-300 rounded-lg px-3 py-3 text-gray-900 bg-white  
+                          focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" 
+              />
             </div>
           </div>
 
-          {/* State + Country */}
+          {/* State + Suburb */}
           <div className="grid grid-cols-2 gap-4">
              <div>
               <label>Suburb<span className="text-red-500">*</span></label>
-              <input type="text" value={suburb} onChange={(e) => setSuburb(e.target.value)} required 
-              className="w-full border border-gray-300 rounded-lg px-3 py-3 text-gray-900 bg-white  
+              <input type="text" 
+                     value={suburb} 
+                     onChange={(e) => setSuburb(e.target.value)} 
+                     required 
+                     className="w-full border border-gray-300 rounded-lg px-3 py-3 text-gray-900 bg-white  
                           focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" 
-              readOnly />
+                     readOnly 
+              />
             </div>
+
             <div>
               <label>State</label>
               <Select
@@ -488,11 +515,15 @@ useEffect(() => {
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label>Postal Code</label>
-              <input type="text" value={postalCode} onChange={(e) => setPostalCode(e.target.value)} 
-              className="w-full border border-gray-300 rounded-lg px-3 py-3 text-gray-900 bg-white  
+              <input type="text" 
+                     value={postalCode} 
+                     onChange={(e) => setPostalCode(e.target.value)} 
+                     className="w-full border border-gray-300 rounded-lg px-3 py-3 text-gray-900 bg-white  
                           focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" 
-              readOnly />
+                     readOnly 
+              />
             </div>
+            
             <div className="card-section">
               <label className="card-label">Card Details<span className="text-red-500"> *</span></label>
               <div className="card-box">
