@@ -8,12 +8,21 @@ import IndexPage from './pages/Index.jsx';
 import CartPage from './pages/cart.jsx';
 import ThankYouPage from './pages/ThankYouPage.jsx';
 import SignInPage from './components/auth/SignInForm.jsx';
+import RegisterPage from './components/auth/RegisterForm.jsx';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useJsApiLoader } from "@react-google-maps/api";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+
 function App() {
-  // const [count, setCount] = useState(0)
+ const { isLoaded, loadError } = useJsApiLoader({
+    googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY,
+    libraries: ["places", "drawing", "geometry", "marker"],
+  });
+
+  if (loadError) return <div>Failed to load Google Maps</div>;
+  if (!isLoaded) return <div>Loading Maps...</div>;
 
   return (
     <>
@@ -30,6 +39,7 @@ function App() {
           <Route path="/checkout" element={<CheckOut />} />
           <Route path="/login" element={<SignInPage />} />
           <Route path="/thankyou/:order_number" element={<ThankYouPage />} />
+          <Route path="/register" element={<RegisterPage />} />
         </Routes>
       </Router>
     </>

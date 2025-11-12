@@ -110,3 +110,59 @@
   background-color: #eff6ff; /* blue-50 */
   transform: scale(1.05);
 }
+
+/* Stripe Elements Customization */ 
+
+.card-section {
+  margin-bottom: 1rem;
+}
+
+.card-label {
+  display: block;
+  font-weight: 600;
+  color: gray;
+  margin-top: 0.5rem;
+}
+
+.card-box {
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  padding: 12px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.card-box-focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 6px rgba(13, 110, 253, 0.4);
+}
+
+/* Register Button */
+
+.submit-btn {
+  width: 30%;
+  background-color: #198754;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 16px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #157347;
+}
+
+.submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+}
