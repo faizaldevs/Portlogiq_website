@@ -13,7 +13,6 @@ const ThankYouPage = () => {
     const fetchOrder = async () => {
       try {
         if (order_number) {
-            console.log("Fetching order for order number:", order_number);
           window.scrollTo(0, 0);
           const res = await api.get(`/api/store/order/${order_number}`);
           setOrder(res.data);
