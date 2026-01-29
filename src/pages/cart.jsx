@@ -110,7 +110,16 @@ const Cart = () => {
                       className="w-24 h-auto rounded-lg"
                     />
                     <div>
-                      <h2 className="text-lg font-semibold">{item.name}</h2>
+                      <h2 className="text-lg font-semibold">
+                        {item.name}
+                      </h2>
+
+                      {item.unit_id && item.unit_name !== "No Unit" && (
+                        <p className="text-sm text-gray-500">
+                          {item.unit_name}
+                        </p>
+                      )}
+
                       <p className="text-gray-600">
                         ${Number(item.price || 0).toFixed(2)}
                       </p>

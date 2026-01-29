@@ -16,7 +16,6 @@ const ThankYouPage = () => {
             console.log("Fetching order for order number:", order_number);
           window.scrollTo(0, 0);
           const res = await api.get(`/api/store/order/${order_number}`);
-          console.log("Order data:", res.data);
           setOrder(res.data);
         }
       } catch (error) {
