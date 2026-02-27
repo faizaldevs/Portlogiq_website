@@ -8,7 +8,7 @@ const FooterPage = () => {
           { title: "Products", links: ["Pricing", "Features", "Integrations", "API"] },
           { title: "Resources", links: ["Docs", "Guides", "Community", "Security"] },
         ].map((col, index) => (
-          <div key={index} className="text-right">
+          <div key={index} className="text-center">
             <h3 className="text-white text-lg font-semibold mb-4">
               {col.title}
             </h3>
