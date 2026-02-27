@@ -116,10 +116,27 @@
                 </Link>
               </div>
 
-                {/* Mobile Menu Toggle */}
+              {/* Mobile Menu Toggle with cart indicator dot */}
               <div className="md:hidden absolute right-0">
-                <button onClick={() => setMenuOpen(!menuOpen)} className="p-2">
-                  ☰
+                <button
+                  onClick={() => setMenuOpen(!menuOpen)}
+                  className="relative p-2"
+                  aria-label="Menu"
+                >
+                  <span className="text-2xl leading-none">☰</span>
+                  {cartCount > 0 && (
+                    <span
+                      style={{
+                        position: "absolute",
+                        top: "4px",
+                        right: "4px",
+                        width: "8px",
+                        height: "8px",
+                        borderRadius: "9999px",
+                        backgroundColor: "olive",
+                      }}
+                    />
+                  )}
                 </button>
               </div>
             </div>
