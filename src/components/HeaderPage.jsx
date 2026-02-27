@@ -26,7 +26,7 @@
                   className="h-[50px] w-auto"
                 />
               </div>
-              {/* Left Icons */}
+              {/* Desktop Icons */}
               <div className="hidden md:flex items-center space-x-1 text-gray-700">
                 <button aria-label="Search" className="p-2 hover:text-black">
                   <svg
@@ -116,10 +116,27 @@
                 </Link>
               </div>
 
-                {/* Mobile Button */}
+              {/* Mobile Menu Toggle with cart indicator dot */}
               <div className="md:hidden absolute right-0">
-                <button onClick={() => setMenuOpen(!menuOpen)} className="p-2">
-                  ☰
+                <button
+                  onClick={() => setMenuOpen(!menuOpen)}
+                  className="relative p-2"
+                  aria-label="Menu"
+                >
+                  <span className="text-2xl leading-none">☰</span>
+                  {cartCount > 0 && (
+                    <span
+                      style={{
+                        position: "absolute",
+                        top: "4px",
+                        right: "4px",
+                        width: "8px",
+                        height: "8px",
+                        borderRadius: "9999px",
+                        backgroundColor: "olive",
+                      }}
+                    />
+                  )}
                 </button>
               </div>
             </div>
@@ -174,8 +191,13 @@
                   </svg>
                 </button>
 
-                {/* Cart */}
-                <button className="p-2">
+                {/* Cart (mobile) */}
+                <Link
+                  to="/cart"
+                  aria-label="Cart"
+                  className="relative p-2 hover:text-black"
+                  onClick={() => setMenuOpen(false)}
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-6 w-6"
@@ -187,15 +209,35 @@
                     <circle cx="7" cy="21" r="1" strokeWidth="2"></circle>
                     <circle cx="17" cy="21" r="1" strokeWidth="2"></circle>
                   </svg>
-                </button>
+                  {cartCount > 0 && (
+                    <span
+                      style={{
+                        position: "absolute",
+                        top: "-8px",
+                        right: "-8px",
+                        background: "olive",
+                        color: "white",
+                        fontSize: "12px",
+                        borderRadius: "50%",
+                        width: "20px",
+                        height: "20px",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
+                    >
+                      {cartCount}
+                    </span>
+                  )}
+                </Link>
               </div>
 
               {/* Menu links */}
               <nav className="flex flex-col space-y-3 text-center text-gray-700 font-medium">
-                <a href="#" className="hover:text-black">Home</a>
-                <a href="#" className="hover:text-black">Shop</a>
-                <a href="#" className="hover:text-black">About</a>
-                <a href="#" className="hover:text-black">Contact</a>
+                <Link to="/" className="hover:text-black" onClick={() => setMenuOpen(false)}>Home</Link>
+                <Link to="/shop" className="hover:text-black" onClick={() => setMenuOpen(false)}>Shop</Link>
+                <Link to="/about" className="hover:text-black" onClick={() => setMenuOpen(false)}>About</Link>
+                <Link to="/contact" className="hover:text-black" onClick={() => setMenuOpen(false)}>Contact</Link>
               </nav>
             </div>
           )}
